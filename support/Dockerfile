@@ -35,3 +35,6 @@ RUN git clone git@github.com:ozkrleal/5inaRow-API-gateway.git
 RUN git clone git@github.com:ozkrleal/5inaRow-auth-user-management.git
 RUN git clone git@github.com:ozkrleal/5inaRow-highscores.git
 RUN git clone git@github.com:ozkrleal/5inaRow-front-end.git
+
+# Create docker container?
+RUN docker build -t 5inarow .
