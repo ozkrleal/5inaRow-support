@@ -38,3 +38,7 @@ RUN git clone git@github.com:ozkrleal/5inaRow-front-end.git
 
 # Create docker container?
 RUN docker build -t 5inarow .
+
+# run docker container
+RUN docker run -d -p 4000:80 5inarow
+
