@@ -29,7 +29,7 @@ RUN touch /home/oscar/.ssh/known_hosts
 # Add github key
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
-# Clone the conf files into the docker container
+# Clone the git repos of environments into the docker container
 RUN git clone git@github.com:ozkrleal/5inaRow-game-engine.git
 RUN git clone git@github.com:ozkrleal/5inaRow-API-gateway.git
 RUN git clone git@github.com:ozkrleal/5inaRow-auth-user-management.git
