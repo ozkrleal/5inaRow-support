@@ -22,12 +22,14 @@ MAINTAINER Oscar Leal "ozkralm10@hotmail.com"
 
 # Update aptitude with new repo
 RUN apt-get update
+RUN apt-get -f install
 
 #install java
-RUN install -y default-jre
+RUN apt-get install -y default-jre
+
 #copies application from its folder to our image, assumes docker build is run from myapp/src
-ADD /build/distributions/myapp.jar /myapp.jar
-CMD ["java", "-jar myapp.jar"]
+#ADD /build/distributions/myapp.jar /myapp.jar
+#CMD ["java", "-jar myapp.jar"]
 
 
 #install mongodb
@@ -88,8 +90,8 @@ RUN git clone git@github.com:ozkrleal/5inaRow-auth-user-management.git
 RUN git clone git@github.com:ozkrleal/5inaRow-highscores.git
 RUN git clone git@github.com:ozkrleal/5inaRow-front-end.git
 
-# Create docker container?
-RUN docker build -t 5inarow .
+# Create docker container? not needed probably.
+#RUN docker build -t 5inarow .
 
 # run docker container
 RUN docker run -d -p 4000:80 5inarow
