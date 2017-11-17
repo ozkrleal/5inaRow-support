@@ -1,0 +1,15 @@
+[submodule "support/game-engine"]
+	path = support/game-engine
+	url = git@github.com:ozkrleal/5inaRow-game-engine.git
+[submodule "support/api-gateway"]
+	path = support/api-gateway
+	url = git@github.com:ozkrleal/5inaRow-API-gateway.git
+[submodule "support/auth-user-management"]
+	path = support/auth-user-management
+	url = git@github.com:ozkrleal/5inaRow-auth-user-management.git
+[submodule "support/highscores"]
+	path = support/highscores
+	url = git@github.com:ozkrleal/5inaRow-highscores.git
+[submodule "support/front-end"]
+	path = support/front-end
+	url = git@github.com:ozkrleal/5inaRow-front-end.git
