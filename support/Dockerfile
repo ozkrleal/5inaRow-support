@@ -29,10 +29,8 @@ RUN sudo service mongod start
 # config mongodb?
 # config webserver nodejs?
 
-#last command ENTRYPOINT
-# ask amin to compile javac in script down.
-# for each repo there is a script for init files, dbschema, ask people about this. add dummy datadb
 # RUN scripts to start services
 
-ENTRYPOINT ["bin/bash", "/initreposcripts.sh"]
+#todo: script that calls scripts in each submodule
+#ENTRYPOINT ["bin/bash", "/initreposcripts.sh"]
 
