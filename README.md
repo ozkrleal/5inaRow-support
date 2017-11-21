@@ -8,7 +8,7 @@ It is a Microservices project for the class Project Laboratory of BME.
 ### Installation
 
 1. Install Docker
-````
+
 Windows (not tested)
 https://docs.docker.com/docker-for-windows/install/
 
@@ -17,7 +17,7 @@ https://docs.docker.com/docker-for-mac/install/
 
 Ubuntu (preferred)
 https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
-````
+
 
 Previous to step 2:
 Install Git in your machine. (Ubuntu/Mac)
@@ -27,7 +27,8 @@ sudo apt-get install git
 For Windows read documentation in:
 https://git-scm.com/download/win
 
-2a Clone repository via SSH
+
+2a Clone repository via SSH (recommended)
 Authentication in:
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 ````
@@ -42,7 +43,7 @@ git clone https://github.com/ozkrleal/5inaRow-support.git
 ````
 
 3a For Mac and Ubuntu
-Go inside the 5inaRow-support/support/ on Terminal / CMD and
+Go inside the 5inaRow-support/support/ on Terminal and
 run these instructions to install the container and run it in your machine.
 
 ````
@@ -51,5 +52,5 @@ run ./enable.sh
 `````
 
 3b For Windows
-Run Bash Script and set Permissions.
+Run Bash Script in CMD and set Permissions.
 
