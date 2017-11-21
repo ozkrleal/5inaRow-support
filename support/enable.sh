@@ -6,7 +6,8 @@ git submodule add git@github.com:ozkrleal/5inaRow-highscores.git highscores
 git submodule add git@github.com:ozkrleal/5inaRow-front-end.git front-end
 
 git submodule update --init
-
+#pulls last commit
+git submodule update --remote --merge
 
 sudo docker build -t 5inarow .
 

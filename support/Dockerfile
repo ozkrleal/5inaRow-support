@@ -34,5 +34,5 @@ COPY initreposcripts.sh /initreposcripts.sh
 RUN chmod +x /initreposcripts.sh
 
 #todo: script that calls scripts in each submodule
-#ENTRYPOINT ["/initreposcripts.sh"]
+#ENTRYPOINT ["bin/bash", "/initreposcripts.sh"]
 
