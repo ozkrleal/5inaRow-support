@@ -17,11 +17,11 @@ RUN apt-get install -y npm
 RUN apt-get install -y default-jre
 
 # copy gits one by one to image
-COPY api-gateway /binaries/api-gateway/
-COPY auth-user-management /binaries/auth-user-management/
-COPY front-end /binaries/front-end/
-COPY game-engine /binaries/game-engine/
-COPY highscores /binaries/highscores/
+COPY api-gateway api-gateway
+COPY auth-user-management auth-user-management
+COPY front-end front-end
+COPY game-engine game-engine
+COPY highscores highscores
 
 # run/create mongo db
 #RUN service mongod start
