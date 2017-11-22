@@ -41,16 +41,23 @@ https://help.github.com/articles/creating-a-personal-access-token-for-the-comman
 ````
 git clone https://github.com/ozkrleal/5inaRow-support.git
 ````
-
-3a For Mac and Ubuntu
+3
 Go inside the 5inaRow-support/support/ on Terminal and
 run these instructions to install the container and run it in your machine.
 
+3a For Ubuntu
+
 ````
 chmod +x /enable.sh
-run ./enable.sh
+./enable.sh
 `````
 
-3b For Windows
+3b For Mac
+````
+chmod 777 /enable.sh
+./enable.sh
+`````
+
+3c For Windows
 Run Bash Script in CMD and set Permissions.
 
