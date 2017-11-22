@@ -27,6 +27,7 @@ sudo apt-get install git
 For Windows read documentation in:
 https://git-scm.com/download/win
 
+2. 
 
 2a Clone repository via SSH (recommended)
 Authentication in:
@@ -41,7 +42,8 @@ https://help.github.com/articles/creating-a-personal-access-token-for-the-comman
 ````
 git clone https://github.com/ozkrleal/5inaRow-support.git
 ````
-3
+3. 
+
 Go inside the 5inaRow-support/support/ on Terminal and
 run these instructions to install the container and run it in your machine.
 
