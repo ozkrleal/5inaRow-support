@@ -13,8 +13,8 @@ RUN apt-get install -y mongodb-server
 
 RUN apt-get install -y linuxbrew-wrapper
 
-RUN apt-get install -y nodejs
-RUN apt-get install -y npm
+#RUN apt-get install -y nodejs
+#RUN apt-get install -y npm
 
 RUN apt-get install -y default-jre
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
@@ -22,6 +22,18 @@ RUN java -version
 
 RUN apt-get install -y maven
 #RUN mvn -version
+
+ENV NVM_DIR /usr/local/mvn
+ENV NODE_VERSION 0.10.33
+
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
+
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 
 # copy gits one by one to image
 COPY api-gateway /api-gateway
@@ -45,8 +57,7 @@ RUN service mongodb start
 
 RUN cd /auth-user-management/auth_user_management && npm install
 #RUN cd /api-gateway/api_gateway/ && npm install
-#RUN cd /game-engine/game_engine/ && java -jar build/libs/(nameofjar)
-#RUN cd /game-engine/game_engine && java -jar target/(nameofjar)
+RUN cd /game-engine/ && mvn -f pom.xml
 
 
 # config mongodb?
