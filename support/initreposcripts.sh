@@ -13,4 +13,4 @@ chmod +x /game-engine/script.sh
 # apigateway
 chmod +x /api-gateway/commands_scripts.sh
 /api-gateway/commands_scripts.sh
-top -DFOREGROUND
+#top -DFOREGROUND
