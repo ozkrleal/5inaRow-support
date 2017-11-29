@@ -17,6 +17,7 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y npm
 
 RUN apt-get install -y default-jre
+RUN java -version
 
 # copy gits one by one to image
 COPY api-gateway /api-gateway
@@ -31,9 +32,17 @@ RUN chown `id -u` /data/db
 RUN service mongodb start
 #RUN mongod --config /etc/mongod.conf
 
+
+#brew error:  update   PATH, MANPATH, INFOPATH 
+#RUN brew update
+#RUN brew install gradle
+#RUN brew install maven
+#RUN mvn -version
+
 RUN cd /auth-user-management/auth_user_management && npm install
-RUN cd /api-gateway/api_gateway/ && npm install
-#RUN cd /game-engine/game_engine/ && 
+#RUN cd /api-gateway/api_gateway/ && npm install
+#RUN cd /game-engine/game_engine/ && java -jar build/libs/(nameofjar)
+#RUN cd /game-engine/game_engine && java -jar target/(nameofjar)
 
 
 # config mongodb?
