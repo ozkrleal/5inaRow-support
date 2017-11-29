@@ -17,7 +17,11 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y npm
 
 RUN apt-get install -y default-jre
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 RUN java -version
+
+RUN apt-get install -y maven
+#RUN mvn -version
 
 # copy gits one by one to image
 COPY api-gateway /api-gateway
@@ -37,7 +41,7 @@ RUN service mongodb start
 #RUN brew update
 #RUN brew install gradle
 #RUN brew install maven
-#RUN mvn -version
+##RUN mvn -version
 
 RUN cd /auth-user-management/auth_user_management && npm install
 #RUN cd /api-gateway/api_gateway/ && npm install
