@@ -17,8 +17,8 @@ RUN apt-get install -y linuxbrew-wrapper
 #RUN apt-get install -y npm
 
 RUN apt-get install -y default-jre
-#OR  #ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+#OR  #ENV JAVA_HOME /usr/lib/jvm/java-8-oracle/bin
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64/bin
 RUN java -version
 
 RUN apt-get install -y maven
@@ -58,7 +58,7 @@ RUN service mongodb start
 
 RUN cd /auth-user-management/auth_user_management && npm install
 RUN cd /api-gateway/api_gateway/ && npm install
-#RUN cd /game-engine/ && mvn -f pom.xml
+RUN cd /game-engine/ && mvn -f pom.xml
 
 
 # config mongodb?
