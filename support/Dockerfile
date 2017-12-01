@@ -27,7 +27,6 @@ ENV PATH $PATH:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin:/usr/lib/jvm/java-1.8.0-o
 RUN java -version
 
 RUN apt-get install -y maven
-#RUN mvn -v
 
 ENV NVM_DIR /usr/local/mvn
 
@@ -55,8 +54,9 @@ RUN chown `id -u` /data/db
 RUN service mongodb start
 #RUN mongod --config /etc/mongod.conf
 
-ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk/jre
-ENV PATH $PATH:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin:/usr/lib/jvm/java-1.8.0-openjdk/bin
+ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
+ENV PATH $PATH:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin
+RUN mvn -v
 
 RUN cd /auth-user-management/auth_user_management && npm install
 RUN cd /api-gateway/api_gateway/ && npm install
