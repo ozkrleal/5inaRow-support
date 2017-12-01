@@ -44,7 +44,7 @@ ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 # copy gits one by one to image
 COPY api-gateway /api-gateway
 COPY auth-user-management /auth-user-management
-COPY front-end /front-end
+COPY front-end /
 COPY game-engine /game-engine
 COPY highscores /highscores
 
