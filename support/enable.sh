@@ -11,6 +11,6 @@ git submodule update --remote --merge
 
 sudo docker build -t 5inarow .
 
-sudo docker run -p 5000:5000 5inarow /bin/bash -i -t
+sudo docker run -p 3100:3100 5inarow /bin/bash -i -t
 
 

@@ -17,14 +17,20 @@ RUN apt-get install -y linuxbrew-wrapper
 #RUN apt-get install -y npm
 
 RUN apt-get install -y default-jre
-#OR  #ENV JAVA_HOME /usr/lib/jvm/java-8-oracle/bin
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64/bin
+#OR  #ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+#OR ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+#ENV JAVA_HOME /usr/lib/jvm/open-jdk
+ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk/jre
+ENV PATH $PATH:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin:/usr/lib/jvm/java-1.8.0-openjdk/bin
+
+
 RUN java -version
 
 RUN apt-get install -y maven
-#RUN mvn -version
+#RUN mvn -v
 
 ENV NVM_DIR /usr/local/mvn
+
 ENV NODE_VERSION 0.10.33
 
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash \
@@ -49,16 +55,12 @@ RUN chown `id -u` /data/db
 RUN service mongodb start
 #RUN mongod --config /etc/mongod.conf
 
-
-#brew error:  update   PATH, MANPATH, INFOPATH 
-#RUN brew update
-#RUN brew install gradle
-#RUN brew install maven
-##RUN mvn -version
+ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk/jre
+ENV PATH $PATH:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin:/usr/lib/jvm/java-1.8.0-openjdk/bin
 
 RUN cd /auth-user-management/auth_user_management && npm install
 RUN cd /api-gateway/api_gateway/ && npm install
-RUN cd /game-engine/ && mvn -f pom.xml
+#RUN cd /game-engine/ && mvn -f pom.xml
 
 
 # config mongodb?
