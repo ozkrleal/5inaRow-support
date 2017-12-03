@@ -14,3 +14,6 @@ chmod +x /game-engine/script.sh
 chmod +x /api-gateway/commands_scripts.sh
 /api-gateway/commands_scripts.sh
 #top -DFOREGROUND
+
+#highscores
+node /highscores/highscores/server.js

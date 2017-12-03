@@ -11,7 +11,9 @@ RUN apt-get update
 
 RUN apt-get install -y mongodb-server  
 
-RUN apt-get install -y linuxbrew-wrapper
+RUN apt-get install -y curl
+
+#RUN apt-get install -y linuxbrew-wrapper
 
 #RUN apt-get install -y nodejs
 #RUN apt-get install -y npm
@@ -44,7 +46,7 @@ ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 # copy gits one by one to image
 COPY api-gateway /api-gateway
 COPY auth-user-management /auth-user-management
-COPY front-end /
+COPY front-end /front-end
 COPY game-engine /game-engine
 COPY highscores /highscores
 
@@ -60,7 +62,7 @@ RUN mvn -v
 
 RUN cd /auth-user-management/auth_user_management && npm install
 RUN cd /api-gateway/api_gateway/ && npm install
-#RUN cd /game-engine/ && mvn -f pom.xml
+RUN cd /game-engine/ && mvn clean package && java -jar target/engine-0.0.1-SNAPSHOT.jar
 
 
 # config mongodb?
