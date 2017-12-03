@@ -18,6 +18,7 @@ RUN apt-get install -y curl
 #RUN apt-get install -y nodejs
 #RUN apt-get install -y npm
 
+RUN apt-get install -y default-jdk
 RUN apt-get install -y default-jre
 #OR  #ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 #OR ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
@@ -62,7 +63,7 @@ RUN mvn -v
 
 RUN cd /auth-user-management/auth_user_management && npm install
 RUN cd /api-gateway/api_gateway/ && npm install
-RUN cd /game-engine/ && mvn clean package && java -jar target/engine-0.0.1-SNAPSHOT.jar
+RUN cd /game-engine/ && mvn clean package
 
 
 # config mongodb?

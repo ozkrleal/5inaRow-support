@@ -16,7 +16,7 @@ Mac (preferred)
 https://docs.docker.com/docker-for-mac/install/
 
 Ubuntu (preferred)
-https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
+Run installdocker.sh
 
 
 Previous to step 2:
