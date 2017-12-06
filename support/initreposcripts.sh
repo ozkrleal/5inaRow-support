@@ -7,8 +7,8 @@
 # authusermgmt
 
 #NOT WORKING, NEED NEW BASH SCRIPT
-chmod +x /auth-user-management/my_commands.sh
-/auth-user-management/my_commands.sh 
+chmod +x /auth-user-management/auth_user_management/my_commands.sh
+/auth-user-management/auth_user_management/my_commands.sh 
 
 # gameengine
 #chmod +x /game-engine/script.sh
@@ -16,12 +16,12 @@ chmod +x /auth-user-management/my_commands.sh
 #./script.sh 
 
 # apigateway
-#chmod +x /api-gateway/commands_scripts.sh
-#/api-gateway/commands_scripts.sh 
+#chmod +x /api-gateway/api_gateway/commands_scripts.sh
+#/api-gateway/api_gateway/commands_scripts.sh 
 
 
 #highscores
-cd /highscores/highscores 
-node /server.js
+#cd /highscores/highscores 
+#node /server.js
 
 #top
