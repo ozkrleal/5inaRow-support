@@ -5,15 +5,23 @@
 #start init scripts of each service
 # highscores
 # authusermgmt
+
+#NOT WORKING, NEED NEW BASH SCRIPT
 chmod +x /auth-user-management/my_commands.sh
-/auth-user-management/my_commands.sh
+/auth-user-management/my_commands.sh 
+
 # gameengine
-chmod +x /game-engine/script.sh
-/game-engine/script.sh
+#chmod +x /game-engine/script.sh
+#cd /game-engine/
+#./script.sh 
+
 # apigateway
-chmod +x /api-gateway/commands_scripts.sh
-/api-gateway/commands_scripts.sh
-#top -DFOREGROUND
+#chmod +x /api-gateway/commands_scripts.sh
+#/api-gateway/commands_scripts.sh 
+
 
 #highscores
-node /highscores/highscores/server.js
+cd /highscores/highscores 
+node /server.js
+
+#top

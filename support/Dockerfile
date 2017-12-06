@@ -13,8 +13,9 @@ RUN apt-get install -y mongodb-server
 
 RUN apt-get install -y curl
 
-#RUN apt-get install -y linuxbrew-wrapper
+RUN apt-get install -y apache2
 
+#RUN apt-get install -y linuxbrew-wrapper
 #RUN apt-get install -y nodejs
 #RUN apt-get install -y npm
 
@@ -47,9 +48,20 @@ ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 # copy gits one by one to image
 COPY api-gateway /api-gateway
 COPY auth-user-management /auth-user-management
-COPY front-end /front-end
+############################ COPY front-end /front-end
+COPY front-end /var/www/html/
 COPY game-engine /game-engine
 COPY highscores /highscores
+
+RUN service apache2 start
+
+RUN apt-get install -y build-essential checkinstall
+RUN apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+RUN apt-get install -y wget
+
+RUN wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz
+RUN tar xzf Python-2.7.14.tgz
+
 
 # run/create mongo db
 RUN mkdir -p /data/db/
@@ -61,13 +73,28 @@ ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
 ENV PATH $PATH:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin
 RUN mvn -v
 
+RUN cd Python-2.7.14 && ./configure && make altinstall
+RUN which python2.7
+RUN python2.7 -V
+RUN npm config set python /usr/local/bin/python2.7/python.exe
+
+RUN npm install -g bindings --save
+
 RUN cd /auth-user-management/auth_user_management && npm install
 RUN cd /api-gateway/api_gateway/ && npm install
 RUN cd /game-engine/ && mvn clean package
+RUN cd /highscores/highscores/ && npm install
 
+#RUN ufw app list
+#RUN ufw allow 'Apache Full'
+#RUN ufw status
+
+RUN npm install -g body-parser
 
 # config mongodb?
 # config webserver nodejs?
+
+EXPOSE 80 3334
 
 COPY initreposcripts.sh /initreposcripts.sh
 # RUN scripts to start services
