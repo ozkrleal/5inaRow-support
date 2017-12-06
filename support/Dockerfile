@@ -34,7 +34,7 @@ RUN apt-get install -y maven
 
 ENV NVM_DIR /usr/local/mvn
 
-ENV NODE_VERSION 4.8.6
+#ENV NODE_VERSION 4.8.6
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
@@ -45,8 +45,8 @@ RUN apt-get install -y nodejs
 #    && nvm alias default $NODE_VERSION \
 #    && nvm use default
 
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+#ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+#ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 
 # copy gits one by one to image
 COPY api-gateway /api-gateway
@@ -58,12 +58,12 @@ COPY highscores /highscores
 
 RUN service apache2 start
 
-#RUN apt-get install -y build-essential checkinstall
-#RUN apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev #libgdbm-dev libc6-dev libbz2-dev
-#RUN apt-get install -y wget
+RUN apt-get install -y build-essential checkinstall
+RUN apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev #libgdbm-dev libc6-dev libbz2-dev
+RUN apt-get install -y wget
 
-#RUN wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz
-#RUN tar xzf Python-2.7.14.tgz
+RUN wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz
+RUN tar xzf Python-2.7.14.tgz
 
 
 # run/create mongo db
@@ -76,13 +76,12 @@ ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
 ENV PATH $PATH:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin
 RUN mvn -v
 
-#RUN cd Python-2.7.14 && ./configure && make altinstall
-#RUN which python2.7
-#RUN python2.7 -V
-#RUN npm config set python /usr/local/bin/python2.7/python.exe
+RUN cd Python-2.7.14 && ./configure && make altinstall
+RUN which python2.7
+RUN python2.7 -V
+RUN npm config set python /usr/local/bin/python2.7/python.exe
 
-RUN npm install -g bindings --save
-RUN npm install -g body-parser --save
+
 
 
 RUN cd /auth-user-management/auth_user_management && npm install
