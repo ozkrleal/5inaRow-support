@@ -2,8 +2,6 @@ FROM ubuntu
  
 MAINTAINER Oscar Leal "ozkralm10@hotmail.com"
 
-echo "Be sure to run createDockerfile.sh before this!!"
-
 RUN apt-get update
 
 RUN apt-get install -y curl
