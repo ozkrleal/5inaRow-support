@@ -101,4 +101,3 @@ OPTIONAL, not needed: For only pulling the repos without building the docker con
 ````
 ./githubpull.sh
 ````
-
