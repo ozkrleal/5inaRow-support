@@ -1,6 +1,6 @@
 #!/bin/bash
 #start database
-
+mongod &
 
 #start init scripts of each service
 # highscores
@@ -10,9 +10,12 @@
 #chmod +x /auth-user-management/auth_user_management/my_commands.sh
 #/auth-user-management/auth_user_management/my_commands.sh 
 #cd /auth-user-management/auth_user_management/
-#npm install bindings --save
-#npm install --save bcrypt
+#npm install bcrypt --save
 #node server.js
+
+
+#npm install bindings --save
+
 
 #working
 # gameengine
@@ -22,14 +25,12 @@
 
 #working
 # apigateway
-#chmod +x /api-gateway/api_gateway/commands_scripts.sh
-#/api-gateway/api_gateway/commands_scripts.sh 
-cd /api-gateway/api_gateway/
-node index.js &
+#cd /api-gateway/api_gateway/
+#node index.js &
 
-#not working
+#almost working
 #highscores
-#cd /highscores/highscores 
-#node server.js
+cd /highscores/highscores 
+node server.js
 
 #top

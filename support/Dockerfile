@@ -56,30 +56,34 @@ COPY front-end /var/www/html/
 COPY game-engine /game-engine
 COPY highscores /highscores
 
+
+
+#RUN apt-get install -y build-essential checkinstall
+#RUN apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev #libgdbm-dev libc6-dev libbz2-dev
+#RUN apt-get install -y wget
+
+#RUN wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz
+#RUN tar xzf Python-2.7.14.tgz
+
+RUN apt-get install -y build-essential
+RUN apt-get install -y python
+
 RUN service apache2 start
-
-RUN apt-get install -y build-essential checkinstall
-RUN apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev #libgdbm-dev libc6-dev libbz2-dev
-RUN apt-get install -y wget
-
-RUN wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz
-RUN tar xzf Python-2.7.14.tgz
-
 
 # run/create mongo db
 RUN mkdir -p /data/db/
 RUN chown `id -u` /data/db
-RUN service mongodb start
+
 #RUN mongod --config /etc/mongod.conf
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
 ENV PATH $PATH:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin
 RUN mvn -v
 
-RUN cd Python-2.7.14 && ./configure && make altinstall
-RUN which python2.7
-RUN python2.7 -V
-RUN npm config set python /usr/local/bin/python2.7/python.exe
+#RUN cd Python-2.7.14 && ./configure && make altinstall
+#RUN which python2.7
+#RUN python2.7 -V
+#RUN npm config set python /usr/local/bin/python2.7/python.exe
 
 
 
