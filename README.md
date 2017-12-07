@@ -64,22 +64,15 @@ Run these instructions to install the container and run it in your machine.
 
 
 
-4a For Ubuntu
+4a For Ubuntu and Mac
 
 ````
 ./createDockerfile.sh
 
 ./enable.sh
-`````
-
-4b For Mac
 ````
-./createDockerfile.sh
 
-./enable.sh
-`````
-
-4c For Windows (not tested)
+4b For Windows (not tested)
 Run enable.sh in CMD and set Permissions.
 
 INFO:
