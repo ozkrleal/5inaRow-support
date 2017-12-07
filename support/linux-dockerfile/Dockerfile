@@ -2,6 +2,7 @@ FROM ubuntu
  
 MAINTAINER Oscar Leal "ozkralm10@hotmail.com"
 
+echo "Be sure to run createDockerfile.sh before this!!"
 
 RUN apt-get update
 
@@ -9,16 +10,6 @@ RUN apt-get install -y curl
 
 # dependencies
 # mongodb dependency
-
-#RUN tar -zxvf mongodb-osx-ssl-x86_64-3.6.0.tgz
-#RUN mkdir -p mongodb
-#RUN cp -R -n mongodb-osx-ssl-x86_64-3.6.0/ mongodb
-#RUN export PATH=<mongodb-install-directory>/bin:$PATH
-#RUN brew update
-#RUN brew install mongodb --devel
-#RUN mkdir -p /data/db       
-#RUN brew install node
-
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 RUN echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.4.list
@@ -49,10 +40,10 @@ RUN mvn -v
 # copy gits one by one to image
 COPY api-gateway /api-gateway
 COPY auth-user-management /auth-user-management
-############################ COPY front-end /front-end
 COPY front-end /var/www/html/
 COPY game-engine /game-engine
 COPY highscores /highscores
+
 
 RUN cd /auth-user-management/auth_user_management && npm install
 RUN cd /api-gateway/api_gateway/ && npm install
