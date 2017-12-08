@@ -1,7 +1,8 @@
 #!/bin/bash
 #start database
 service apache2 start
-mongod &
+service mongodb start
+service mongodb enable
 
 #start init scripts of each service
 # highscores
