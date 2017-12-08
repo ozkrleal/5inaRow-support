@@ -9,6 +9,7 @@ RUN apt-get install -y curl
 # dependencies
 # mongodb dependency
 
+RUN mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 RUN brew update
 RUN brew install mongodb --devel
 RUN mkdir -p /data/db       
