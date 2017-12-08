@@ -19,7 +19,6 @@ RUN apt-get install -y default-jdk
 RUN apt-get install -y default-jre
 
 
-RUN cd /usr/ && mkdir local
 RUN cd /usr/local/ && mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
 RUN brew update
