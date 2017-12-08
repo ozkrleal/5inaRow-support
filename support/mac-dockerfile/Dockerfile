@@ -19,7 +19,7 @@ RUN apt-get install -y default-jdk
 RUN apt-get install -y default-jre
 
 
-RUN cd /usr/local/ && mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+RUN /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 RUN brew update
 RUN brew install mongodb --devel
