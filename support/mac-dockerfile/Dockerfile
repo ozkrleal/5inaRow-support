@@ -9,11 +9,7 @@ RUN apt-get install -y curl
 # dependencies
 # mongodb dependency
 
-RUN mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-RUN brew update
-RUN brew install mongodb --devel
-RUN mkdir -p /data/db       
-RUN brew install node
+
 
 RUN apt-get install -y nodejs
 
@@ -21,6 +17,15 @@ RUN apt-get install -y apache2
 
 RUN apt-get install -y default-jdk
 RUN apt-get install -y default-jre
+
+
+RUN cd /usr/ && mkdir local && cd ..
+RUN cd /usr/local/ && mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+
+RUN brew update
+RUN brew install mongodb --devel
+RUN mkdir -p /data/db       
+RUN brew install node
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk/jre
 ENV PATH $PATH:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin:/usr/lib/jvm/java-1.8.0-openjdk/bin
@@ -41,7 +46,6 @@ COPY auth-user-management /auth-user-management
 COPY front-end /var/www/html/
 COPY game-engine /game-engine
 COPY highscores /highscores
-
 
 
 RUN cd /auth-user-management/auth_user_management && npm install
