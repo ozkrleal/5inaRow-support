@@ -78,8 +78,12 @@ Run enable.sh in CMD and set Permissions.
 INFO:
 createDockerfile is going to locate a Dockerfile based on your current OS (Linux and Mac supported only), and then enable will clone all the other needed repos, build the image AND run it. (If you prefer HTTPS rather than SSH, run ./enableHTTP.sh instead).
 
+5. Play game
+Open two different browsers, or one incognito and one normal instance of the browser of your preference.
 
-5. 
+Access http://localhost:3334 , create your accounts, and search for a game on both instances!
+
+6. Additional Methods
 Inside 5inaRow-support/support/ on Terminal.
 
 For killing running containers
